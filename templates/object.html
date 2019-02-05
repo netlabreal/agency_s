@@ -1,0 +1,390 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<header class="up-section-obj">
+    <!--<div class="navbar-lab">-->
+    <nav class="navbar" style="background: rgba(59, 73, 100); height: 60px!important; margin-bottom: 0px!important;">
+        <div class="container1" style="transition: all 0.9s;">
+            <!-- Brand и toggle сгруппированы для лучшего отображения на мобильных дисплеях -->
+            <div class="navbar-header ">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <i class="zmdi zmdi-view-toc " id="t-button" style="font-size: 46px; color: white;"></i>
+                </button>
+
+                <div id="logo_in" style="display: none;">
+                    <a href="#" class="standard-logo"><img class="img-responsive media-logo" src="{% static 'img/logo133.png' %}" style="padding-left: 25px;"></a>
+                </div>
+                <button type="button" class="btn button-black" id="up_button">Получить бесплатную консультацию</button>
+            </div>
+
+            <!-- Соберите навигационные ссылки, формы, и другой контент для переключения -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+
+                    </li>
+                </ul>
+
+                <!--<ul class="nav navbar-nav navbar-right navbar-search">
+                    <li>
+                        <a class="lab-nav-link" style="padding-top: 13px;">
+                            <i class="zmdi zmdi-search" style="font-size: 24px;"></i>
+                        </a>
+                        <!--<form class="rd-search" action="search-results.html">
+                            <div class="form-wrap">
+                                <label class="form-label rd-input-label" for="rd-navbar-search-form-input-1">Search...</label>
+                                <input class="form-input rd-navbar-search-form-input" id="rd-navbar-search-form-input-1" type="text" name="s" autocomplete="off">
+                                <div class="rd-search-results-live cleared" id="rd-search-results-live-1"></div>
+                            </div>
+                            <button class="rd-search-form-submit fa-search" type="submit"></button>
+                        </form>
+
+                    </li>
+                </ul>-->
+
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 140px;font-family: menu;">
+                    <li class=""><a class="lab-nav-link " href="/">ГЛАВНАЯ</a></li>
+                    <li><a class="lab-nav-link active" href="/objects">объекты</a></li>
+                    <li><a class="lab-nav-link" href="/about">О НАС</a></li>
+                    <li>
+                        <a class="lab-nav-link">наши услуги </a>
+                        <!--<ul class="rd-menu rd-navbar-dropdown">
+                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-property.html">Single Property</a></li>
+                        </ul>-->
+
+                    </li>
+
+
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+
+
+            <div class="rd-navbar-search toggle-original-elements" id="rd-navbar-search-1">
+
+            </div><!-- /.container-fluid -->
+    </div></nav>
+    <!--</div>-->
+
+    <div class="container">
+
+    </div>
+
+    <div class="container">
+        <div class="jumbotron-classic-content" style="padding-top: 27px;">
+            <div class="wow-outer" style="color: white;">
+                <div class="title-docor-text font-weight-bold title-decorated text-uppercase wow slideInLeft text-white">Наши предложения</div>
+            </div>
+
+{% block bread %}
+    <ul class="breadcrumbs-custom-path">
+        <li><a href="/">Главная</a></li>
+        <li><i class="zmdi zmdi-chevron-right"></i></li>
+        <li class=""><a href="/objects">Объекты</a></li>
+        <li><i class="zmdi zmdi-chevron-right"></i></li>
+        <li class="active">{{ object }}</li>
+    </ul>
+{% endblock %}
+
+
+        </div>
+    </div>
+
+</header>
+{% endblock %}
+
+{% block menu %}
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 140px;font-family: menu">
+        <li class=""><a class="lab-nav-link " href="/">ГЛАВНАЯ</a></li>
+        <li><a class="lab-nav-link active" href="/objects">объекты</a></li>
+        <li><a class="lab-nav-link" href="/about">О НАС</a></li>
+        <li><a class="lab-nav-link-toggle">наши услуги</a></li>
+        <li class="up_search"><i class="zmdi zmdi-search lab-nav-link" style="font-size: 24px;"></i></li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<section class="section section-center text-center" id="offers">
+    <div class="container">
+        <div class="l-caption">{{ object }}</div>
+        <div class="row row-50 offset-top-2">
+
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="detail_view">
+
+
+
+                    <div id="testCarousel" class="carousel slide" data-ride="carousel" style="max-width: 560px; display: inline-block;">
+                        <!-- Индикаторы карусели -->
+                        <ol class="carousel-indicators">
+                        {% with object.get_images as list %}
+                            {% for k in list %}
+                                {% if forloop.first %}
+                                    <li data-target="#testCarousel" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+                                {% else %}
+                                    <li data-target="#testCarousel" data-slide-to="{{ forloop.counter0 }}" ></li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endwith %}
+                        </ol>
+
+                        <!-- Слайды карусели -->
+                        <div class="carousel-inner">
+                            <!-- Слайд 1 -->
+                                    {% with object.get_images as list %}
+                                        {% for k in list %}
+                                            {% if forloop.first %}
+                                                 <div class="item active">
+                                                    <img src="{{ k }}" alt="{{ forloop.counter0 }}">
+                                                </div>
+                                            {% else %}
+                                                 <div class="item">
+                                                    <img src="{{ k }}" alt="...">
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endwith %}
+                        </div>
+
+                        <!-- Навигация карусели (следующий или предыдущий слайд) -->
+                        <!-- Кнопка, переход на предыдущий слайд с помощью атрибута data-slide="prev" -->
+                        <a class="left carousel-control" href="#testCarousel" role="button" data-slide="prev">
+
+                            <span class=""> <i class="zmdi zmdi-chevron-left" style="font-size: 50px; color: white; padding-left: 12px;    padding-top: 220%;"></i></span>
+                        </a>
+                        <!-- Кнопка, переход на следующий слайд с помощью атрибута data-slide="next" -->
+                        <a class="right carousel-control" href="#testCarousel" role="button" data-slide="next">
+                            <span class=""> <i class="zmdi zmdi-chevron-right" style="font-size: 50px; color: white; padding-left: 12px;    padding-top: 220%;"></i></span>
+
+                        </a>
+                    </div>
+
+
+
+                    <div class="opisanie">
+                        <p align="justify">{{ object.opisanie }}</p>
+                    </div>
+
+
+            </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" style="">
+                <table class="table " style="font-family: txt2;font-size: 16px;">
+              <tbody>
+                <tr>
+                  <td>Адрес</td>
+                  <td>{{ object.adres }}</td>
+                </tr>
+                <tr>
+                  <td>Площадь</td>
+                    {% if not object.s is None %}
+                         <td>{{ object.s|floatformat:"0" }} м2</td>
+                    {% else %}
+                         <td>Н/О</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                  <td>Кол-во комнат</td>
+                  <td>{{ object.komnat }}</td>
+                </tr>
+                <tr>
+                  <td>Этаж</td>
+                  <td>{{ object.floor }}</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+
+                <ul class="post-modern-meta-detail">
+                    <li style="font-size: 24px;"><div class="content-original">{{ object.cost|floatformat:"0" }} ₽</div></li>
+                </ul>
+
+                <button class="btn button-sredn find_n">Связаться с агентом</button>
+
+                <div id="map" style="min-height: 450px; margin-top: 15px;">
+
+			    </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</section>
+
+<section class="section section-center text-center" id="offers">
+    <div class="container">
+        <div class="ll-caption">похожие предложения</div>
+        <div class="row row-50 offset-top-2">
+
+            {% for k in rez %}
+             <div class="col-md-6 col-lg-4">
+                <article class="post-modern" style=" padding-bottom: 15px; margin-bottom: 15px;">
+                    <a class="post-modern-media" href="/objects/{{ k.id }}/">
+                        <div class="pre-img"><img class="img-responsive" src="{{ k.main_img }}"></div>
+                    </a>
+                    <div class="post-modern-title">
+                        <a class="" >{{ k }}</a>
+                    </div>
+                    <ul class="post-modern-meta">
+                        <li><div class="content-original">{{ k.cost|floatformat:"0" }} ₽</div></li>
+                        <li>{{ k.s|floatformat:"0" }} м2</li>
+                        <li>{{ k.floor }} этаж</li>
+
+                    </ul>
+                    <p class="p" style="overflow: hidden; text-overflow: ellipsis; height: 116px; padding-left: 20px; padding-right: 20px; padding-bottom: 10px;">{{ k.opisanie }}</p>
+                </article>
+            </div>
+            {% endfor %}
+
+        <!--    <div class="col-md-6 col-lg-4">
+				<article class="post-modern">
+					<a class="post-modern-media" href="single-blog-post.html">
+						<div class="pre-img"><img class="img-responsive" src="/static/img/1.jpg"></div>
+					</a><div class="post-modern-title"><a class="post-modern-media" href="single-blog-post.html">
+						</a><a class="" href="single-blog-post.html">Продам однокомнатную квартиру на Малиновского</a>
+					</div>
+
+					<ul class="post-modern-meta">
+						<li><div class="content-original">1 800 000 ₽</div></li>
+						<li>30,1 м2</li>
+						<li>2 этаж</li>
+					</ul>
+					<p class="p">Продам однокомнатную квартиру на Малиновского. 30 кв.м; Второй этаж; Свежий ремонт; Солнечная сторона; В квартире выполнили капитальный ремонт: заменили электропроводку и водоотведение, переложили полы.</p>
+
+				</article>
+
+			</div>
+
+            <div class="col-md-6 col-lg-4">
+				<article class="post-modern">
+					<a class="post-modern-media" href="single-blog-post.html">
+						<div class="pre-img"><img class="img-responsive" src="/static/img/1.jpg"></div>
+					</a><div class="post-modern-title"><a class="post-modern-media" href="single-blog-post.html">
+						</a><a class="" href="single-blog-post.html">Продам однокомнатную квартиру на Малиновского</a>
+					</div>
+
+					<ul class="post-modern-meta">
+						<li><div class="content-original">1 800 000 ₽</div></li>
+						<li>30,1 м2</li>
+						<li>2 этаж</li>
+					</ul>
+					<p class="p">Продам однокомнатную квартиру на Малиновского. 30 кв.м; Второй этаж; Свежий ремонт; Солнечная сторона; В квартире выполнили капитальный ремонт: заменили электропроводку и водоотведение, переложили полы.</p>
+
+				</article>
+
+			</div>
+
+            <div class="col-md-6 col-lg-4">
+				<article class="post-modern">
+					<a class="post-modern-media" href="single-blog-post.html">
+						<div class="pre-img"><img class="img-responsive" src="/static/img/1.jpg"></div>
+					</a><div class="post-modern-title"><a class="post-modern-media" href="single-blog-post.html">
+						</a><a class="" href="single-blog-post.html">Продам однокомнатную квартиру на Малиновского</a>
+					</div>
+
+					<ul class="post-modern-meta">
+						<li><div class="content-original">1 800 000 ₽</div></li>
+						<li>30,1 м2</li>
+						<li>2 этаж</li>
+					</ul>
+					<p class="p">Продам однокомнатную квартиру на Малиновского. 30 кв.м; Второй этаж; Свежий ремонт; Солнечная сторона; В квартире выполнили капитальный ремонт: заменили электропроводку и водоотведение, переложили полы.</p>
+
+				</article>
+
+			</div>
+
+-->
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+{% block js %}
+
+	var map;
+    var str = parseFloat("{{ object.shirota }}".replace(',','.'));
+    var str1 = parseFloat("{{ object.dolgota }}".replace(',','.'));
+    if(str!=0){
+		DG.then(function () {
+			map = DG.map('map', {
+				center: [str, str1],
+				zoom: 16
+			});
+
+			myDivIcon = DG.divIcon({
+                iconSize: [130, 40],
+                html: '<img src="{% static 'img/favicon.png' %}"></img>'
+            });
+
+			myIcon = DG.icon({
+				iconUrl: '{% static 'img/favicon.png' %}',
+                //iconUrl: 'https://maps.api.2gis.ru/2.0/example_logo.png',
+                iconSize: [36, 36]
+            });
+			//DG.marker([54.98, 82.89], {icon: myIcon}, {title:"Агенство недвижимости Собственник"}).addTo(map);
+		    DG.marker([str, str1], {title:'{{ object.name|first }}'}).addTo(map).bindPopup('Вы кликнули по мне!');
+	    });
+    }
+
+
+        var thousandSeparator = function(str) {
+        var parts = (str + '').split('.'),
+            main = parts[0],
+            len = main.length,
+            output = '',
+            i = len - 1;
+
+        while(i >= 0) {
+            output = main.charAt(i) + output;
+            if ((len - i) % 3 === 0 && i > 0) {
+                if(isNaN(parseInt(main.charAt(i)))==false) {
+                    output = ' ' + output;
+                }
+            }
+            --i;
+        }
+
+        if (parts.length > 1) {
+            output += '.' + parts[1];
+        }
+        return output;
+    };
+
+
+   $(document).ready(function() {
+        $('.carousel').carousel({
+            interval: false
+        });
+        $(".post-modern-meta-detail").find("li").each(function(){
+            $(this)[0].innerText = thousandSeparator($(this)[0].innerText);
+        });
+        $(".post-modern-meta").find("li").each(function(){
+            $(this)[0].innerText = thousandSeparator($(this)[0].innerText);
+        });
+
+
+        var str = parseFloat("{{ object.shirota }}".replace(',','.'));
+        if(str==0){
+            $("#map").css("display","none");
+        }
+        else{
+            $("#map").css("display","block");
+        };
+
+    });
+
+ {% endblock %}

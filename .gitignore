@@ -1,0 +1,5 @@
+.idea/
+db/
+static_user/
+media/
+*.pyc

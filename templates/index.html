@@ -1,0 +1,404 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{%  block header %}
+<header class="up-section">
+		<!--<div class="navbar-lab">-->
+			<nav class="navbar" style="background: rgba(59, 73, 100); height: 60px!important; margin-bottom: 0px!important;">
+			<div class="container1" style="transition: all 0.9s;">
+				<!-- Brand и toggle сгруппированы для лучшего отображения на мобильных дисплеях -->
+				<div class="navbar-header ">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<i class="zmdi zmdi-view-toc " id="t-button" style="font-size: 46px; color: white;"></i>
+					</button>
+
+					<div id="logo_in" style="display: none;">
+						<a href="#" class="standard-logo"><img class="img-responsive media-logo" src="{% static 'img/logo133.png' %}" style="padding-left: 25px;"></a>
+					</div>
+					<button type="button" class="btn button-black b24-web-form-popup-btn-6" id="up_button">Получить бесплатную консультацию</button>
+				</div>
+
+				<!-- Соберите навигационные ссылки, формы, и другой контент для переключения -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+
+						</li>
+					</ul>
+
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 140px;font-family: menu">
+        <li class=""><a class="lab-nav-link active" href="/">ГЛАВНАЯ</a></li>
+        <li><a class="lab-nav-link" href="/objects">объекты</a></li>
+        <li><a class="lab-nav-link" href="/about">О НАС</a></li>
+        <li><a class="lab-nav-link-toggle">наши услуги</a></li>
+
+
+        <!--<li class="up_search"><i class="zmdi zmdi-search lab-nav-link" style="font-size: 24px;"></i></li>-->
+    </ul>
+
+				</div><!-- /.navbar-collapse -->
+
+
+				<div class="rd-navbar-search toggle-original-elements" id="rd-navbar-search-1"></div>
+
+			</div><!-- /.container-fluid -->
+		</nav>
+		<!--</div>-->
+
+	<div class="owl-carousel owl-theme">
+
+		<div class="container">
+			<div class="jumbotron-classic-content" style="padding-top: 77px;">
+
+				<div class="wow-outer" style="color: white;">
+					<div class="title-docor-text font-weight-bold title-decorated text-uppercase wow slideInLeft text-white" style="visibility: visible; animation-name: slideInLeft;">Разнообразие Предложений</div>
+				</div>
+				<h1 class="text-uppercase text-white font-weight-bold wow-outer"><span class="wow slideInDown" style="font-family: txt1;">ОБЪЕКТЫ НЕДВИЖИМОСТИ</span></h1>
+				<p class="text-white wow-outer"><span class="wow slideInDown" data-wow-delay=".35s" style="visibility: visible; animation-delay: 0.35s; animation-name: slideInDown;">
+					Агенство недвижимости Собственник предлагаем Вам одну из самых больших баз любого вида недвижимости в пределах Находкинского городского округа.</span></p>
+
+				<div class="wow-outer button-outer">
+					<button type="button" class="btn button-sredn" id="all_objects">Все объекты</button>
+					</a>
+				</div>
+
+
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="jumbotron-classic-content" style="padding-top: 77px;">
+				<div class="wow-outer" style="color: white;">
+					<div class="title-docor-text font-weight-bold title-decorated text-uppercase wow slideInLeft text-white" style="visibility: visible; animation-name: slideInLeft;">Профессионалы своего дела</div>
+				</div>
+				<h1 class="text-uppercase text-white font-weight-bold wow-outer"><span class="wow slideInDown" style="font-family: txt1;">квалифицированные специалисты</span></h1>
+				<p class="text-white wow-outer"><span class="wow slideInDown" data-wow-delay=".35s" style="visibility: visible; animation-delay: 0.35s; animation-name: slideInDown;">
+					В компании Собственник работают более 12 кфалифицированных специалистов, которые помогут Вам.</span></p>
+
+				<div class="wow-outer button-outer">
+					<button type="button" class="btn button-sredn" id="spec">Наши специалисты</button>
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</header>
+{%  endblock %}
+
+
+{% block content %}
+
+    <section class="bg-gray-102 section-md">
+
+	<div class="container" style="transition: all 0.9s; padding-bottom: 30px;">
+
+
+		<form>
+			<div class="form-wrap form-wrap-select wow fadeInLeftSmall">
+				<div class="row row-20 justify-content-md-center">
+					<!-- Select 2-->
+					<div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
+						<select class="form-control form-input for-text-search" id="type">
+                            {% for k in types %}
+                                <option value="{{ k.id }}">{{ k }}</option>
+                            {% endfor %}
+						</select>
+						<span class="select2-selection__arrow" role="presentation"><i class="zmdi zmdi-chevron-down" style="font-size: 20px;"></i></span>
+
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
+						<select class="form-control form-input for-text-search" id="typ">
+                            <option value="0">любая недвижимость</option>
+                            {% for k in typs %}
+                                <option value="{{ k.id }}">{{ k }}</option>
+                            {% endfor %}
+						</select>
+						<span class="select2-selection__arrow" role="presentation"><i class="zmdi zmdi-chevron-down" style="font-size: 20px;"></i></span>
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
+						<select class="form-control form-input for-text-search" id="ray">
+                            <option value="0">любой район</option>
+                            {%  for k in ray %}
+                                 <option value="{{ k.id }}">{{ k }}</option>
+                            {%  endfor %}
+						</select>
+						<span class="select2-selection__arrow" role="presentation"><i class="zmdi zmdi-chevron-down" style="font-size: 20px;"></i></span>
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12" style="text-align: center;">
+						<button type="button" id="find_obj" class="btn button-sredn">Найти недвижимость</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+
+
+<section class="section section-lg">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-8">
+				<dl class="list-terms" style="text-align: center; font-family: txt1; font-size: 25px;">
+					<dt>А давайте познакомимся поближе</dt>
+					<dd>Компания Собственник - команда, которая действительно любит свой город и людей! Наш род деятельности... Прежде всего это услуги в
+					сфере недвижимости:</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="section section-lg text-center" style="padding-bottom: 20px;">
+	<div class="container" style="padding-top: 40px;">
+		<div class="row row-50">
+			<div class="col-6 col-md-3">
+				<article class="counter-minimal">
+					<div class="counter-minimal-icon fl-bigmug-line-circular220"><i class="zmdi zmdi-city"></i></div>
+					<div class="counter-minimal-main">
+						<div class="counter animated">5000+</div>
+					</div>
+					<h5 class="counter-minimal-title">Объектов в нашей базе</h5>
+				</article>
+			</div>
+			<div class="col-6 col-md-3">
+				<article class="counter-minimal">
+					<div class="counter-minimal-icon fl-bigmug-line-graphical8"><i class="zmdi zmdi-calendar"></i></div>
+					<div class="counter-minimal-main">
+						<div class="counter animated">7+</div>
+					</div>
+					<h5 class="counter-minimal-title">лет на рынке недвижимости</h5>
+				</article>
+			</div>
+			<div class="col-6 col-md-3">
+				<article class="counter-minimal">
+					<div class="counter-minimal-icon fl-bigmug-line-favourites5"><i class="zmdi zmdi-account"></i></div>
+					<div class="counter-minimal-main">
+						<div class="counter animated">12+</div>
+					</div>
+					<h5 class="counter-minimal-title">квалифицированных сотрудников</h5>
+				</article>
+			</div>
+			<div class="col-6 col-md-3">
+				<article class="counter-minimal">
+					<div class="counter-minimal-icon fl-bigmug-line-user144"><i class="zmdi zmdi-accounts"></i></div>
+					<div class="counter-minimal-main">
+						<div class="counter animated">3000+</div>
+					</div>
+					<h5 class="counter-minimal-title">довольных клиентов</h5>
+				</article>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section section-lg bg-gray-100 text-center">
+	<div class="container">
+		<div class="row row-30">
+			<div class="col-sm-4 col-lg-4 wow-outer">
+				<article class="box-minimal">
+					<div class="box-chloe__icon linearicons-user wow fadeIn"></div>
+					<div class="box-minimal-main wow-outer">
+						<h4 class="box-minimal-title "><i class="zmdi zmdi-account dop" style="vertical-align: middle"></i>Квалифицированные специалисты</h4>
+						<p class="wow" style="font-family: txt1; font-size: 18px;">В нашей команде работает более 12 квалифицированных специалистов, готовых помочь Вам.</p>
+					</div>
+				</article>
+			</div>
+			<div class="col-sm-4 col-lg-4 wow-outer">
+				<article class="box-minimal">
+					<div class="box-chloe__icon linearicons-bubble-text wow fadeIn"></div>
+					<div class="box-minimal-main wow-outer">
+						<h4 class="box-minimal-title wow slideInDown" ><i class="zmdi zmdi-comment-text dop" style="vertical-align: middle"></i>Бесплатный подбор и консультация</h4>
+						<p class="wow " style="font-family: txt1; font-size: 18px;">Наше знакомство с клиентом всегда начинается с бесплатной консультации.</p>
+					</div>
+				</article>
+			</div>
+			<div class="col-sm-4 col-lg-4 wow-outer">
+				<article class="box-minimal">
+					<div class="box-chloe__icon linearicons-star wow fadeIn" ></div>
+					<div class="box-minimal-main wow-outer">
+						<h4 class="box-minimal-title wow slideInDown" ><i class="zmdi zmdi-star-outline dop" style="vertical-align: middle"></i>100% гарантия чистоты сделки</h4>
+						<p class="wow " style="font-family: txt1; font-size: 18px;">Все наши сделки проходят тщательную проверку квалифицированными юристами.</p>
+					</div>
+				</article>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="section section-center text-center" id="offers">
+	<div class="container">
+		<div class="l-caption">Лучшие предложения</div>
+		<div class="row row-50 offset-top-2">
+            <!-- +++++++++++++++++++++++++++++ -->
+            {% for k in random %}
+                <div class="col-md-6 col-lg-4" style="padding-bottom: 10px;">
+				    <article class="post-modern" style="padding-bottom: 3px; ">
+					    <a class="post-modern-media" href="/objects/{{ k.id }}/">
+						    <div class="pre-img"><img class="img-responsive" src="{{ k.main_img }}" ></div>
+                        </a>
+                       	<div class="post-modern-title">
+						    <a class="" href="/objects/{{ k.id }}/">{{ k.name|truncatechars:70 }}</a>
+					    </div>
+
+                        <ul class="post-modern-meta">
+                            <li><div class="content-original">{{ k.cost|floatformat:"0" }} ₽</div></li>
+                            <li>{{ k.s|floatformat:"0" }} м2</li>
+                            <li>{{ k.floor }} / {{ k.floors }} этаж</li>
+					    </ul>
+                        <a class="" href="/objects/{{ k.id }}/">
+                            <p class="p" style="overflow: hidden; text-overflow: ellipsis; height: 116px; padding-left: 20px; padding-right: 20px; padding-bottom: 10px;">{{ k.opisanie }}</p>
+                        </a>
+                    </article>
+                </div>
+            {% endfor %}
+
+            <!-- +++++++++++++++++++++++++++++ -->
+
+			<div class="col-md-12 col-lg-12" style="text-align: center; padding-top: 20px;">
+				<button type="button" id="more" class="btn button-sredn">Больше предложений</button>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+<section class="section bg-gray-101">
+	<div class="container">
+		<div class="l-caption">связаться с нами</div>
+
+		<div class="col-lg-12 align-self-center container" style="padding-bottom: 20px;">
+			<div class="row">
+				<div class="col-lg-6 cell-inner">
+					<div class="section-lg" >
+
+
+						<script id="bx24_form_inline" data-skip-moving="true">
+                            (function(w,d,u,b){w['Bitrix24FormObject']=b;w[b] = w[b] || function(){arguments[0].ref=u;
+                                (w[b].forms=w[b].forms||[]).push(arguments[0])};
+                                if(w[b]['forms']) return;
+                                var s=d.createElement('script');s.async=1;s.src=u+'?'+(1*new Date());
+                                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                            })(window,document,'https://sobstvennik.bitrix24.ru/bitrix/js/crm/form_loader.js','b24form');
+
+                            b24form({"id":"4","lang":"ru","sec":"x63f5r","type":"inline"});
+						</script>
+
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="address">
+						<img class="img-responsive standard-logo" src="{% static 'img/s_logo.png' %}"><br>
+						<ul class="r_dop">
+							<li><i class="zmdi zmdi-pin" style="vertical-align: middle;"></i>г. Находка ул. Школьная дом 2А офис 21 </li>
+							<li><i class="zmdi zmdi-email"></i><a href = "mailto:manager.sobstvennik@gmail.com">manager.sobstvennik@gmail.com</a></li>
+							<li><i class="zmdi zmdi-phone"></i>8 (914) 657-44-67</li>
+							<li><i class="zmdi zmdi-time"></i>Мы открыты Пн - Сб c 10 до 18</li>
+							<div class="advanced-layout">
+								<ul class="social-links list-inline">
+									<li><a href="#"><i class="zmdi zmdi-instagram media_dop"></i></a></li>
+									<li><a href="#"><i class="zmdi zmdi-odnoklassniki media_dop"></i></a></li>
+									<li><a href="#"><i class="zmdi zmdi-vk media_dop"></i></a></li>
+									<li><a href="#"><i class="zmdi zmdi-youtube media_dop"></i></a></li>
+								</ul>
+							</div>
+						</ul>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+	<div class="" style="display: flex; flex-wrap: wrap;">
+		<div class="col-lg-12 col-xs-12 height-fill wow fadeIn" style="visibility: visible; animation-name: fadeIn; padding-right: 0px;padding-left: 0px;">
+			<div id="map" style="min-height: 400px;">
+<
+			</div>
+		</div>
+
+	</div>
+</section>
+
+
+{% endblock %}
+
+ {% block js %}
+    //*****************************************************//
+    var thousandSeparator = function(str) {
+        var parts = (str + '').split('.'),
+            main = parts[0],
+            len = main.length,
+            output = '',
+            i = len - 1;
+
+        while(i >= 0) {
+            output = main.charAt(i) + output;
+            if ((len - i) % 3 === 0 && i > 0) {
+                if(isNaN(parseInt(main.charAt(i)))==false) {
+                    output = ' ' + output;
+                }
+            }
+            --i;
+        }
+
+        if (parts.length > 1) {
+            output += '.' + parts[1];
+        }
+        return output;
+    };
+    //*****************************************************//
+	var map;
+		DG.then(function () {
+			map = DG.map('map', {
+				center: [42.82842155210269, 132.89144790152935],
+				zoom: 16
+			});
+
+			myDivIcon = DG.divIcon({
+                iconSize: [130, 40],
+                html: '<img src="{% static 'img/favicon.png' %}"></img>'
+            });
+
+			myIcon = DG.icon({
+				iconUrl: '{% static 'img/favicon.png' %}',
+                //iconUrl: 'https://maps.api.2gis.ru/2.0/example_logo.png',
+                iconSize: [36, 36]
+            });
+			//DG.marker([54.98, 82.89], {icon: myIcon}, {title:"Агенство недвижимости Собственник"}).addTo(map);
+			DG.marker([42.82842155210269, 132.89144790152935], {icon: myIcon, title:'Агенство недвижимости Собственник'}).addTo(map).bindPopup('Вы кликнули по мне!');
+	});
+    //*****************************************************//
+    $(document).ready(function() {
+        $(".post-modern-meta").find("li").each(function(){
+            $(this)[0].innerText = thousandSeparator($(this)[0].innerText);
+        });
+
+        $("#more").click(function(){
+            location.href = '/objects/';
+        });
+        $("#all_objects").click(function(){
+            location.href = '/objects/';
+        });
+        $("#spec").click(function(){
+            location.href = '/about/';
+        });
+
+         $("#find_obj").click(function(){
+             var ss = "?p1="+$("#type").val()+"&p2="+$("#typ").val()+"&p3="+$("#ray").val();
+     console.log(ss);
+             location.href = '/objects/'+ss;
+        });
+    });
+    //*****************************************************//
+
+ {% endblock %}

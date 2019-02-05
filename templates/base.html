@@ -1,0 +1,253 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Агенство недвижимости Собственник</title>
+
+	<link rel="stylesheet" href="{% static 'css/h.css' %}">
+	<link rel="stylesheet" href="{% static 'css/media.css' %}">
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-slider.css' %}">
+
+	<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+		<script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full&skin=dark"></script>
+</head>
+
+<body>
+
+
+<div class="container clearfix" id="tmp" style="display: block;">
+
+	<!-- Logo
+    ============================================= -->
+	<div id="logo">
+		<a href="#" class="standard-logo">
+			<img class="img-responsive standard-logo" src="{% static 'img/logo133.png' %}">
+
+		</a>
+
+	</div><!-- #logo end -->
+	<div style="display: inline-block; float: right;">
+		<ul class="header-extras">
+			<li>
+				<i class="zmdi zmdi-phone" style="padding-right: 5px;"></i>
+				<div class="he-text" style="float:right;">
+					<span>8 (914) 657-44-67</span>
+				</div>
+			</li>
+			<li>
+				<i class="zmdi zmdi-email" style="padding-right: 5px;"></i>
+				<div class="he-text" style="float:right;">
+					<a href="mailto:manager.sobstvennik@gmail.com">manager.sobstvennik@gmail.com</a>
+				</div>
+			</li>
+			<li id="hid">
+				<i class="zmdi zmdi-time" style="padding-right: 5px;"></i>
+				<div class="he-text" style="float:right;">
+					Мы открыты Пн - Сб c 10 до 18
+				</div>
+			</li>
+		</ul>
+	</div>
+
+</div>
+
+{%  block header %}
+
+{%  endblock %}
+
+
+{% block content %}{% endblock %}
+
+<footer class="section footer-advanced bg-gray-700">
+	<div class="footer-advanced-main">
+		<div class="container">
+				<div class="col-lg-4 col-sm-6 col-md-4 col-xs-12">
+
+					<div style="padding-bottom: 15px;"><img class="" src="{% static 'img/logo133.png' %}"></div>
+						<ul style="margin-left: 25px;">
+							<li><i class="zmdi zmdi-pin" style="padding-right: 5px;"></i>г. Находка ул. Школьная дом 2А офис 21</li>
+							<li><i class="zmdi zmdi-phone" style="padding-right: 5px;"></i>8 (914) 657-44-67	</li>
+							<li><i class="zmdi zmdi-email" style="padding-right: 5px;"></i><a href = "mailto:manager.sobstvennik@gmail.com">manager.sobstvennik@gmail.com</a></li>
+						</ul>
+
+						<div class="footer-advanced-layout">
+								<ul class="foter-social-links list-inline list-inline-md">
+									<li><a href="#"><i class="zmdi zmdi-instagram media"></i></a></li>
+									<li><a href="#"><i class="zmdi zmdi-odnoklassniki media"></i></a></li>
+									<li><a href="#"><i class="zmdi zmdi-vk media"></i></a></li>
+									<li><a href="#"><i class="zmdi zmdi-youtube media"></i></a></li>
+								</ul>
+						</div>
+
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xs-12" id="news">
+					<h5 class="font-weight-bold text-uppercase text-white">Новости</h5>
+                    {% for k in news %}
+                        <article class="post-inline" style="padding-bottom: 5px;">
+                            <p class="post-inline-title"><a href="/news/{{ k.get_url }}">{{ k.name }}</a></p>
+                        </article>
+                    {% endfor %}
+
+					<!--<article class="post-inline">
+						<p class="post-inline-title"><a href="single-blog-post.html">Как правильно выбрать агенство недвижимости</a></p>
+						<ul class="post-inline-meta">
+							<li>Л</li>
+						</ul>
+					</article>
+					<article class="post-inline">
+						<p class="post-inline-title"><a href="single-blog-post.html">--------------------------------------</a></p>
+						<ul class="post-inline-meta">
+							<li>Л</li>
+						</ul>
+					</article>-->
+				</div>
+
+
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xs-12" id="rassilka">
+					<h5 class="font-weight-bold text-uppercase text-white">Подписаться на нашу рассылку</h5>
+					<div class="box">
+						<div class="container-1">
+							<p>Следите за последними новостями и событиями компании. Введите свой e-mail и подпишитесь на нашу рассылку.</p>
+							<button class="btn btn-icon-only btn-primary r"><i class="zmdi zmdi-email"></i></button>
+							<input class="form-input" type="email" id="email" placeholder="Укажите Ваш Email" />
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+
+		<div class="container">
+			<hr>
+		</div>
+		<div class="footer-advanced-aside">
+			<div class="container">
+						<span style="float: left">©&nbsp;</span>
+						<span style="float: left; padding-right: 3px;" class="copyright-year">2018 </span><span>&nbsp;</span>
+
+						<span style="float: left"> Все права защищены.</span><span>&nbsp;</span>
+						<span style="float: right">Разработано designedbylab.ru</span>
+			</div>
+		</div>
+
+	</div>
+</footer>
+<DIV ID = "toTop" > <i class="zmdi zmdi-chevron-up" style="font-size: 50px; color: white; padding-left: 12px;"></i></DIV >
+
+<!--++++++++++++++++++++++++++++++++++++++++++-->
+<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-slider.js' %}"></script>
+
+
+ <script type="text/javascript">
+     {% block js %}
+
+    {% endblock %}
+ </script>
+
+<script type="text/javascript">
+
+
+ $(window).scroll(function() {
+        if ($(this).scrollTop() > 60) {
+            $('.navbar').addClass('navbar-fixed-top');
+            $(".navbar").css("background", "#232426");
+            $(".navbar").css("box-shadow", "0 5px 10px 0px rgba(20, 20, 28, 0.3)");
+            $("#bs-example-navbar-collapse-1").css("background", "rgb(35, 36, 38)");
+
+            $('#toTop').fadeIn();
+
+
+        }
+        if ($(this).scrollTop() < 60) {
+            $('.navbar').removeClass('navbar-fixed-top')
+            $(".navbar").css("background", "rgba(59, 73, 100)");
+            $(".navbar").css("box-shadow", "");
+
+            $("#bs-example-navbar-collapse-1").css("background", "rgb(59, 73, 100)");
+
+            $('#toTop').fadeOut();
+            //alert($(this).scrollTop());
+            // создаем эффекты и анимацию
+        }
+    });
+
+    $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({items:1,  margin:10, navigation:true, pagination:true, autoplay:true, rewind:true, autoplayTimeout:10000});
+
+        $(".navbar-toggle").click(function () {
+			if($("#t-button").hasClass("zmdi-view-toc")){
+				$("#t-button").removeClass("zmdi-view-toc");
+				$("#t-button").addClass("zmdi-close-circle-o");
+			}
+        	else {
+                $("#t-button").removeClass("zmdi-close-circle-o");
+                $("#t-button").addClass("zmdi-view-toc");
+            }
+        });
+
+        $(".lab-nav-link-toggle").hover(function(){
+            $(this).css("color", "rgba(255, 255, 255, 0.4)");
+            $(this).css("background-color", "transparent!important");
+            $(".lab-nav-link-toggle i").removeClass("zmdi-chevron-down");
+
+        	$(".rd-menu").css("visibility","visible");
+
+            $(".lab-nav-link-toggle i").addClass("zmdi-chevron-up");
+
+        }, function(){
+            $(".lab-nav-link-toggle i").removeClass("zmdi-chevron-up");
+
+            $(".rd-menu").css("visibility","hidden");
+            $(".lab-nav-link-toggle i").addClass("zmdi-chevron-down");
+            $(this).css("color", "white");
+            $(this).css("background-color", "transparent!important");
+        });
+         $(".lab-nav-link").click(function() {
+             active =  $('.navbar-right').find(".active");
+             active.removeClass("active");
+             $(this).addClass("active");
+
+         });
+
+
+
+
+	});
+</script>
+
+<!--++++++++++++++++++++++++++++++++++++++++++-->
+<script id="bx24_form_button" data-skip-moving="true">
+        (function(w,d,u,b){w['Bitrix24FormObject']=b;w[b] = w[b] || function(){arguments[0].ref=u;
+            (w[b].forms=w[b].forms||[]).push(arguments[0])};
+            if(w[b]['forms']) return;
+            var s=d.createElement('script');s.async=1;s.src=u+'?'+(1*new Date());
+            var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+        })(window,document,'https://sobstvennik.bitrix24.ru/bitrix/js/crm/form_loader.js','b24form');
+
+    b24form({"id":"6","lang":"ru","sec":"on1vfz","type":"button","click":""});
+</script>
+<!--++++++++++++++++++++++++++++++++++++++++++-->
+<script data-skip-moving="true">
+    (function(w,d,u){
+        var s=d.createElement('script');s.async=1;s.src=u+'?'+(Date.now()/60000|0);
+        var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+    })(window,document,'https://cdn.bitrix24.ru/b8755445/crm/site_button/loader_1_wbmp6d.js');
+</script>
+<!--++++++++++++++++++++++++++++++++++++++++++-->
+</body>
+</html>

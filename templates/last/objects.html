@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<header class="up-section-obj">
+    <!--<div class="navbar-lab">-->
+    <nav class="navbar" style="background: rgba(59, 73, 100); height:60px!important; margin-bottom:0px!important;">
+        <div class="container1" style="transition: all 0.9s;">
+            <!-- Brand и toggle сгруппированы для лучшего отображения на мобильных дисплеях -->
+            <div class="navbar-header ">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <i class="zmdi zmdi-view-toc " id="t-button" style="font-size: 46px; color: white;"></i>
+                </button>
+
+                <div id="logo_in" style="display: none;">
+                    <a href="#" class="standard-logo"><img class="img-responsive media-logo" src="{% static 'img/logo133.png' %}" style="padding-left: 25px;"></a>
+                </div>
+                <button type="button" class="btn button-black b24-web-form-popup-btn-6" id="up_button">Получить бесплатную консультацию</button>
+            </div>
+
+            <!-- Соберите навигационные ссылки, формы, и другой контент для переключения -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+
+                    </li>
+                </ul>
+
+
+
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 140px;font-family: menu;">
+                    <li class=""><a class="lab-nav-link " href="/">ГЛАВНАЯ</a></li>
+                    <li><a class="lab-nav-link active" href="/objects">объекты</a></li>
+                    <li><a class="lab-nav-link" href="/about">О НАС</a></li>
+                    <li><a class="lab-nav-link">наши услуги </a></li>
+
+
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+
+
+            <div class="rd-navbar-search toggle-original-elements" id="rd-navbar-search-1">
+
+            </div><!-- /.container-fluid -->
+   </nav>
+    <!--</div>-->
+
+    <div class="container">
+
+    </div>
+
+    <div class="container">
+        <div class="jumbotron-classic-content" style="padding-top: 27px;">
+            <div class="wow-outer" style="color: white;">
+                <div class="title-docor-text font-weight-bold title-decorated text-uppercase wow slideInLeft text-white">Наши предложения</div>
+            </div>
+
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="/">Главная</a></li>
+                <li><i class="zmdi zmdi-chevron-right"></i></li>
+                <li class="active">Объекты</li>
+            </ul>
+
+
+
+
+        </div>
+    </div>
+
+</header>
+
+{% endblock %}
+
+{% block menu %}
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 140px;font-family: menu">
+        <li class=""><a class="lab-nav-link " href="/">ГЛАВНАЯ</a></li>
+        <li><a class="lab-nav-link active" href="/objects">объекты</a></li>
+        <li><a class="lab-nav-link" href="/about">О НАС</a></li>
+        <li><a class="lab-nav-link-toggle">наши услуги</a></li>
+
+    </ul>
+{% endblock %}
+
+
+{% block bread %}
+    <ul class="breadcrumbs-custom-path">
+        <li><a href="/">Главная</a></li>
+        <li><i class="zmdi zmdi-chevron-right"></i></li>
+        <li class="active">Объекты</li>
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="bg-gray-102 section-md">
+    <div class="container" style="transition: all 0.9s;">
+        <form method="get" action="/objects">
+            <div class="form-wrap form-wrap-select wow fadeInLeftSmall" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeftSmall;">
+                <div class="row row-20 justify-content-md-center">
+                    <!-- Select 2-->
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <select id="types" class="form-control form-input for-text-search" name="p1">
+                            {% for k in types_list %}
+                                <option value="{{ k.id }}">{{ k }}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="select2-selection__arrow" role="presentation"><i class="zmdi zmdi-chevron-down" style="font-size: 20px;"></i></span>
+
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <select id="typs" class="form-control form-input for-text-search" name="p2">
+                            <option value="0">любая недвижимость</option>
+                            {% for k in typs_list %}
+                                <option value="{{ k.id }}">{{ k }}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="select2-selection__arrow" role="presentation"><i class="zmdi zmdi-chevron-down" style="font-size: 20px;"></i></span>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <select id="ray" class="form-control form-input for-text-search" name="p3">
+                            <option value="0">любой район</option>
+                            {%  for k in ray_list %}
+                                 <option value="{{ k.id }}">{{ k }}</option>
+                            {%  endfor %}
+                        </select>
+                        <span class="select2-selection__arrow" role="presentation"><i class="zmdi zmdi-chevron-down" style="font-size: 20px;"></i></span>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" style="font-family: txt2;font-size:16px;padding-top:10px; padding-bottom:20px;">
+                        <input id="ex2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="25000000" data-slider-step="100000" data-slider-value="[0,25000000]" name="p4"/>
+                        <div id="znach"></div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" style="font-family: txt2;padding-top:10px; padding-bottom:20px;">
+                        <input id="ex3" type="text" class="span2" value="" data-slider-min="0" data-slider-max="250" data-slider-step="10" data-slider-value="[0,250]" name="p5"/>
+                        <div id="znach3"></div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align: center;">
+                        <button type="submit" class="btn button-sredn find_n">Найти недвижимость</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<section class="section section-center text-center" id="offers">
+    <div class="container">
+        <div class="l-caption">Наши предложения</div>
+        <div class="row row-50 offset-top-2">
+            {% for k in objects %}
+            <div class="col-md-6 col-lg-4" style="padding-bottom: 10px;">
+                <article class="post-modern" style="padding-bottom: 3px; ">
+                    <a class="post-modern-media" href="/objects/{{ k.id }}/">
+                        <div class="pre-img"><img class="img-responsive" src="{{ k.main_img }}"></div>
+                    </a>
+                    <div class="post-modern-title">
+                        <a class="" href="/objects/{{ k.id }}/">{{ k|truncatechars:70 }}</a>
+                    </div>
+
+                    <ul class="post-modern-meta">
+                        <li><div class="content-original">{{ k.cost|floatformat:"0" }} ₽</div></li>
+                        <li>{{ k.s|floatformat:"0" }} м2</li>
+                        <li>{{ k.floor }} / {{k.floors}} этаж</li>
+
+                    </ul>
+
+                    <a class="" href="/objects/{{ k.id }}/">
+                        <p class="p" style="overflow: hidden; text-overflow: ellipsis; height: 116px; padding-left: 20px; padding-right: 20px; padding-bottom: 10px;">{{ k.opisanie }}</p>
+                    </a>
+                </article>
+            </div>
+            {% endfor %}
+         {% if not objects %}
+             <div class="panel panel-primary ">
+                  <div class="panel-body">
+                      <h3 style="font-family: txt3;">ИЗВИНИТЕ! ПО ВАШЕМУ ЗАПРОСУ НИЧЕГО НЕ НАЙДЕНО. ИЗМЕНИТЕ ЗАПРОС.</h3>
+                  </div>
+            </div>
+         {% endif %}
+
+        </div>
+
+
+        <div class="col-md-12 col-lg-12" style="text-align: center; padding-top: 2px;">
+                <div class="pagination">
+
+                {% if page_obj.has_previous %}
+                  <div class="page-item nn"><a class="page-linkD button-winona" href="/objects/?page={{ page_obj.previous_page_number }}"><div class="content-original">&laquo;</div></a></div>
+                {% else %}
+                  <div class="page-item nn"><a style=" display:none;" class="page-linkD button-winona disabled"><div class="content-original">&laquo;</div></a></div>
+                {% endif %}
+
+                    {% for i in paginator.page_range %}
+                      {% if page_obj.number == i and paginator.num_pages > 1%}
+                        <div class="page-item active"><a class="page-link button-winona" href="#"><div class="content-original">{{ i }}</div></a></div>
+                      {% else %}
+                          {% if paginator.num_pages > 1 %}
+                            <div class="page-item"><a class="page-link button-winona" href="/objects/?page={{ i }}&p1={{ search_params.0 }}&p2={{ search_params.1 }}&p3={{ search_params.2 }}&p4={{ search_params.3 }}&p5={{ search_params.4 }}"><div class="content-original">{{ i }}</div></a></div>
+                          {% endif %}
+                      {% endif %}
+                    {% endfor %}
+
+                {% if page_obj.has_next %}
+                     <div class="page-item nn"><a class="page-linkD button-winona" href="/objects/?page={{ page_obj.next_page_number }}"><div class="content-original">&raquo;</div></a></div>
+                {% else %}
+                     <div class="page-item nn"><a style="display: none;" class="page-linkD button-winona" ><div class="content-original">&raquo;</div></a></div>
+                {% endif %}
+
+
+
+                </div>
+            </div>
+
+    </div>
+</section>
+
+
+{% endblock %}
+
+{% block js %}
+    var thousandSeparator = function(str) {
+        var parts = (str + '').split('.'),
+            main = parts[0],
+            len = main.length,
+            output = '',
+            i = len - 1;
+
+        while(i >= 0) {
+            output = main.charAt(i) + output;
+            if ((len - i) % 3 === 0 && i > 0) {
+                if(isNaN(parseInt(main.charAt(i)))==false) {
+                    output = ' ' + output;
+                }
+            }
+            --i;
+        }
+
+        if (parts.length > 1) {
+            output += '.' + parts[1];
+        }
+        return output;
+    };
+
+     $(document).ready(function() {
+
+      $('#ex2').slider({
+            formatter: function (value) {
+                if(Array.isArray(value)){
+                    $("#znach").html("Стоимость от: "+thousandSeparator(value[0])+" р. до: "+thousandSeparator(value[1])+' р.');
+                }
+                return 'Стоимость: ' + thousandSeparator(value[0])+' р. - '+thousandSeparator(value[1]) + ' р.';
+
+            }
+        });
+
+        $('#ex3').slider({
+            formatter: function (value) {
+                if(Array.isArray(value)){
+                    //console.log(value[0]+"  --  "+value[1]);
+                    $("#znach3").html("Площадь от: "+value[0]+" м2 до: "+value[1]+" м2");
+                }
+
+                return 'Площадь: ' + value[0]+" м2 - "+value[1]+" м2";
+
+            }
+        });
+
+
+
+        k = "{{search_params.0}}";
+        k1 = "{{search_params.1}}";
+        k2 = "{{search_params.2}}";
+        k3 = "{{search_params.3}}";
+        k4 = "{{search_params.4}}";
+
+        if(k != 0){$("#types").val(k);}
+        if(k1 != 0){$("#typs").val(k1)};
+        if(k2 != 0){$("#ray").val(k2)};
+
+        if(k3 != 0){
+            arr = k3.split(',');
+            $("#ex2").slider('setValue',[parseInt(arr[0]), parseInt(arr[1])],true);
+        }
+        if(k4 != 0){
+            arr = k4.split(',');
+            $("#ex3").slider('setValue',[parseInt(arr[0]), parseInt(arr[1])],true);
+        }
+
+
+
+        $(".find_n").click(function(){
+            var ss = "p1="+$("#0").val()+";p2="+$("#typs").val()+";p3="+$("#ray").val()+";p4="+$("#ex2").val()+";p5="+$("#ex3").val();
+            //alert();
+        });
+
+         $(".post-modern-meta").find("li").each(function(){
+            $(this)[0].innerText = thousandSeparator($(this)[0].innerText);
+
+        //$("#ex16a").slider({ min: 0, max: 25000000, value: 100000, focus: true });
+
+
+
+        });
+
+
+    });
+{% endblock %}

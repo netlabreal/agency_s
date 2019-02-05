@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<header class="up-section-obj">
+    <!--<div class="navbar-lab">-->
+    <nav class="navbar" style="background: rgba(51, 51, 51, 0.1); height: 60px!important; margin-bottom: 0px!important;">
+        <div class="container" style="transition: all 0.9s;">
+            <!-- Brand и toggle сгруппированы для лучшего отображения на мобильных дисплеях -->
+            <div class="navbar-header ">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <i class="zmdi zmdi-view-toc " id="t-button" style="font-size: 46px; color: white;"></i>
+                </button>
+
+                <div id="logo_in" style="display: none;">
+                    <a href="#" class="standard-logo"><img class="img-responsive media-logo" src="{% static 'img/logo133.png' %}" style="padding-left: 25px;"></a>
+                </div>
+                <button type="button" class="btn button-black" id="up_button">Получить бесплатную консультацию</button>
+            </div>
+
+            <!-- Соберите навигационные ссылки, формы, и другой контент для переключения -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right navbar-search">
+                    <li>
+                        <a class="lab-nav-link" style="padding-top: 13px;">
+                            <i class="zmdi zmdi-search" style="font-size: 24px;"></i>
+                        </a>
+                        <!--<form class="rd-search" action="search-results.html">
+                            <div class="form-wrap">
+                                <label class="form-label rd-input-label" for="rd-navbar-search-form-input-1">Search...</label>
+                                <input class="form-input rd-navbar-search-form-input" id="rd-navbar-search-form-input-1" type="text" name="s" autocomplete="off">
+                                <div class="rd-search-results-live cleared" id="rd-search-results-live-1"></div>
+                            </div>
+                            <button class="rd-search-form-submit fa-search" type="submit"></button>
+                        </form>-->
+
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 60px;font-family: menu;">
+                    <li class=""><a class="lab-nav-link " href="/">ГЛАВНАЯ</a></li>
+                    <li><a class="lab-nav-link active" href="/objects">объекты</a></li>
+                    <li><a class="lab-nav-link" href="/about">О НАС</a></li>
+                    <li>
+                        <a class="lab-nav-link">наши услуги </a>
+                        <!--<ul class="rd-menu rd-navbar-dropdown">
+                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-property.html">Single Property</a></li>
+                        </ul>-->
+
+                    </li>
+
+
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+
+
+            <div class="rd-navbar-search toggle-original-elements" id="rd-navbar-search-1">
+
+            </div><!-- /.container-fluid -->
+    </div></nav>
+    <!--</div>-->
+
+    <div class="container">
+
+    </div>
+
+    <div class="container">
+        <div class="jumbotron-classic-content" style="padding-top: 27px;">
+            <div class="wow-outer" style="color: white;">
+                <div class="title-docor-text font-weight-bold title-decorated text-uppercase wow slideInLeft text-white">Наши новости</div>
+            </div>
+
+{% block bread %}
+    <ul class="breadcrumbs-custom-path">
+        <li><a href="/">Главная</a></li>
+        <li><i class="zmdi zmdi-chevron-right"></i></li>
+        <li class=""><a href="/news">Новости</a></li>
+        <li><i class="zmdi zmdi-chevron-right"></i></li>
+        <li class="active">{{ object }}</li>
+    </ul>
+{% endblock %}
+
+
+        </div>
+    </div>
+
+</header>
+{% endblock %}
+
+{% block menu %}
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 140px;font-family: menu">
+        <li class=""><a class="lab-nav-link " href="/">ГЛАВНАЯ</a></li>
+        <li><a class="lab-nav-link active" href="/objects">объекты</a></li>
+        <li><a class="lab-nav-link" href="/about">О НАС</a></li>
+        <li><a class="lab-nav-link-toggle">наши услуги</a></li>
+        <li class="up_search"><i class="zmdi zmdi-search lab-nav-link" style="font-size: 24px;"></i></li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<section class="section section-center text-center" id="news">
+    <h4 class="box-minimal-title ">{{ object.name }}</h4>
+    <div class="container">
+        <div class="row">
+             <div class="col-md-4 col-lg-4">
+                 <div class="pre-img"><img class="img-responsive" src="{{ object.foto }}"></div>
+             </div>
+             <div class="col-md-8 col-lg-8">
+                <p style="padding-left: 30px; padding-right: 30px;">{{ object.txt }}</p>
+             </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
